@@ -1,0 +1,77 @@
+\documentclass[a4paper]{article}
+
+\input{packages}
+
+\input{packages_article}
+
+% page counter
+\newcommand{\pagecounter}{page \thepage{} of \pageref{LastPage}}
+% setup page header and footer
+\fancypagestyle{fancytext}
+{
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyhead{}
+  \fancyfoot{}
+  \fancyhf{}
+  % contents of left-hand side footer
+  \lfoot{}
+  % contents of central footer
+  \cfoot{{\footnotesize\pagecounter}}
+  % contents of right-hand side footer
+  \rfoot{}
+}
+% set style to the above
+\pagestyle{fancytext}
+
+% metadata for PDF
+\newcommand{\documentTitle}{Title}
+\newcommand{\documentDate}{1 January 2015} % custom date, or \today
+\newcommand{\documentAuthor}{Mateusz Bysiek}
+\newcommand{\documentSubject}{}
+\newcommand{\documentDescription}{}
+\newcommand{\documentKeywords}{}
+\newcommand{\documentLanguage}{en}
+\hypersetup{
+  pdfauthor={\documentAuthor},
+  pdftitle={\documentTitle},
+  pdfsubject={\documentSubject},
+  pdfkeywords={\documentKeywords},
+  %pdfproducer={LaTeX with hyperref},
+  pdfcreationdate={\documentDate},
+  pdflang={\documentLanguage},
+  %pdfpagelabels=true,
+  pdfinfo={%
+    CopyrightStatus={Copyrighted},
+    CopyrightNotice={CC BY-NC 4.0 2015 by \documentAuthor}
+  },
+  %pdfcreator={xelatex, biber}
+}
+
+\addbibresource[datatype=bibtex]{document.bib}
+
+\begin{document}
+
+\title{\documentTitle}
+\author{\documentAuthor\footnote{affiliation details}}
+\date{\documentDate}
+
+\maketitle{}
+
+\vfill{}
+
+\tableofcontents{}
+
+\vfill{}
+
+% add below after \maketitle and \tableofcontents unless they reside
+%  on the same page - then add it below the later one
+\pagestyle{fancytext}
+\thispagestyle{fancytext}
+
+\newpage{}
+
+\printbibliography
+
+\end{document}
+
