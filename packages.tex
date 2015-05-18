@@ -1,0 +1,129 @@
+
+% Lorem ipsum dolor sit amet, consectetuer adipiscing elit...
+\usepackage{lipsum}
+
+% supress 'xparse/redefine-command' warnings
+\usepackage[log-declarations=false]{xparse}
+
+% for \iflinux and \ifwindows checks
+\usepackage{ifplatform}
+
+% support for chinese, japanese, korean
+\usepackage{xeCJK}
+% examples: Meiryo, Meiryo UI, MS Mincho, MS PMincho, MS Gothic, MS PGothic, MS UI Gothic
+% incomplete examples: SimSun, SimHei, FangSong, KaiTi
+\iflinux
+% set default font for xeCJK
+\setCJKmainfont{IPAPMincho}
+% set sans font for xeCJK
+\setCJKsansfont{IPAMincho}
+% set monospace font for xeCJK
+\setCJKmonofont{IPAPMincho}
+\else\ifwindows
+\setCJKmainfont{MS PMincho}
+\setCJKsansfont{Meiryo UI}
+\setCJKmonofont{Meiryo}
+\else
+\setCJKmainfont{IPAPMincho}
+\setCJKsansfont{IPAMincho}
+\setCJKmonofont{IPAPMincho}
+\fi
+\fi
+
+% recommended when using English hyphenation with babel
+\usepackage{csquotes}
+
+% hyphenation
+\usepackage[english]{babel}
+
+% for proper placement of floating figures
+\usepackage{float}
+
+%use \begin{wrapfigure}[lineheight]{position}{width} for wrapping text around figures
+\usepackage{wrapfig}
+
+% captions for figures and tables
+\usepackage{caption}
+% and then:
+%\setlength{\floatsep}{0pt} % space left between floats (12.0pt plus 2.0pt minus 2.0pt).
+%\setlength{\textfloatsep}{0pt} % space between last top float or first bottom float and the text (20.0pt plus 2.0pt minus 4.0pt).
+%\setlength{\intextsep}{1em} % space left on top and bottom of an in-text float (12.0pt plus 2.0pt minus 2.0pt).
+%\setlength{\dbltextfloatsep}{0pt} % is \textfloatsep for 2 column output (20.0pt plus 2.0pt minus 4.0pt).
+%\setlength{\dblfloatsep}{0pt} % is \floatsep for 2 column output (12.0pt plus 2.0pt minus 2.0pt).
+%\setlength{\abovecaptionskip}{0.5em} % space above caption (10.0pt).
+%\setlength{\belowcaptionskip}{0pt} % space below caption (0.0pt).
+
+% use \begin{mdframed} ... \end{mdframed} to add frames around things
+\usepackage{mdframed}
+
+% colors
+\usepackage{color}
+% more colors, new colors with \definecolor{name}{model}{color-spec}
+% e.g. \definecolor{light-gray}{gray}{0.95} or \definecolor{orange}{RGB}{255,127,0}
+% and for colored text use \textcolor{declared-color}{text}
+\usepackage[usenames,dvipsnames,svgnames,table,x11names]{xcolor}
+
+%big braces and other useful symbols
+\usepackage{amssymb}
+
+% some mathematical symbols
+% conflicts with package program
+\usepackage{amsmath}
+
+% use \begin{comment} ... \end{comment} for multiline comments
+\usepackage{comment}
+
+% use \begin{multicols}{#} for # columns
+\usepackage{multicol}
+
+% remove vertical space in itemize with: [noitemsep,nolistsep]
+\usepackage{enumitem}
+% fix missing bullet in itemize
+\setlist[itemize,1]{label={\fontfamily{cmr}\fontencoding{T1}\selectfont\textbullet}}
+
+% tables with flexible column widths using 'X'
+\usepackage{tabularx}
+
+% use \includegraphics[scale=1.00]{file.jpg} for images
+\usepackage{graphicx}
+
+% drawing versatile vector graphics with \begin{tikzpicture} ... \end{tikzpicture}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{shapes}
+
+% charts and plots in any form
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+
+% to get plot data from CSV
+\usepackage{csvsimple}
+
+% inline file contents using \begin{filecontents*}{benchmarkb.csv} ... \end{filecontents*}
+\usepackage{filecontents}
+
+%use \begin{minted}[mathescape,linenos,numbersep=5pt,gobble=0,framesep=2mm]{c++}
+\usepackage{minted}
+\iflinux
+% run 'pythontex document.tex' after first build
+\usepackage{pythontex}
+\fi
+
+% page x of y with: \cfoot{\thepage{} of \pageref{LastPage}}
+\usepackage{lastpage}
+
+% to handle multiple footnotes in title and authors area
+\usepackage[multiple]{footmisc}
+
+% also needed for footers
+\usepackage{fancyhdr}
+
+% insert web addresses using \url{http://domain.com/}
+\usepackage{url}
+
+% use \addbibresource[datatype=bibtex]{file.bib} to add bibliography
+% some more options: ,bibstyle=authortitle,url=false,isbn=false,autocite=square,autocite=superscript,
+\usepackage[backend=biber,hyperref=true,backref=true,style=numeric,sorting=none]{biblatex}
+% and then:
+%\addbibresource[datatype=bibtex]{document.bib}
