@@ -1,0 +1,34 @@
+/*.pdf
+
+# latex/xelatex temporary files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.lof
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.synctex.gz(busy)
+*.toc
+
+# minted/pythontex temporary files
+*.pkl
+*.pygstyle
+*.pygtex
+*.pytxcode
+*.pytxmcr
+*.pytxpyg
+
+# htlatex temporary files
+*.4ct
+*.4tc
+*.idv
+*.lg
+*.ps
+*.tmp
+*.xdv
+*.xref
