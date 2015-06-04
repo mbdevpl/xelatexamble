@@ -17,6 +17,7 @@
 
 # minted/pythontex temporary files
 *.pkl
+*.pyg
 *.pygstyle
 *.pygtex
 *.pytxcode
