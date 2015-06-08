@@ -17,7 +17,7 @@
 % this should be negative of the sum of the above two
 \addtolength{\textwidth}{0.5cm}
 \addtolength{\topmargin}{-0.5cm}
-% this should be
+% footer is not included in below
 \addtolength{\textheight}{1.0cm}
 
 % for package caption (suggestions between parentheses)
@@ -70,14 +70,13 @@
   pdfsubject={\documentSubject},
   pdfkeywords={\documentKeywords},
   %pdfproducer={LaTeX with hyperref},
+  %pdfcreator={xelatex, biber},
   pdfcreationdate={\documentDate},
   pdflang={\documentLanguage},
-  %pdfpagelabels=true,
-  pdfinfo={%
+  pdfinfo={
     CopyrightStatus={Copyrighted},
     CopyrightNotice={CC BY-NC 4.0 2015 by \documentAuthor}
-  },
-  %pdfcreator={xelatex, biber}
+  }
 }
 
 \addbibresource[datatype=bibtex]{document.bib}
