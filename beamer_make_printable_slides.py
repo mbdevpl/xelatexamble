@@ -6,7 +6,9 @@ import argparse
 import mbdev
 
 parser = argparse.ArgumentParser(
-    description='''generating printable slides.''',
+    description='''Generates printable version of beamer slides. When you
+ actually print the output file, please select 'US letter' paper size due to
+ margin errors on some printers.''',
     epilog='''by Mateusz Bysiek''',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
@@ -16,19 +18,16 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-output = '{name}_print.tex'.format(name=args.filename)
+output_prefix = args.filename + '_print'
+output = output_prefix + '.tex'
 
 with open(output, 'w') as f:
 		f.write(r'''\documentclass[a4paper]{article}
-
-\usepackage{geometry}
-\geometry{margin=4cm}
 
 \usepackage{pdfpages}
 
 \begin{document}
 
-%,offset=10mm 10mm
 \includepdf[nup=2x2,pages=-,delta=5mm 5mm,frame=true,landscape]{''')
 		f.write(args.filename)
 		f.write(r'''.pdf}
@@ -38,4 +37,6 @@ with open(output, 'w') as f:
 
 mbdev.execute(['pdflatex', output], indent=2)
 
-mbdev.execute(['rm', '-rf', output + '.*'], indent=2)
+mbdev.execute(['mv', output_prefix + '.pdf', output_prefix + 'able.pdf'])
+
+mbdev.execute(['rm', '-rf', output_prefix + '.*'])
