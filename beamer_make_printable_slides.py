@@ -6,15 +6,17 @@ import argparse
 import mbdev
 
 parser = argparse.ArgumentParser(
-    description='''Generates printable version of beamer slides. When you
- actually print the output file, please select 'US letter' paper size due to
- margin errors on some printers.''',
+    description='''Generates printable version of beamer slides. The resulting
+ file will have the name "<filename>_printable.pdf" where <filename> is the sole
+ command-line argument. When you actually print the output file, please select
+ 'US letter' paper size due to margin errors on some printers.''',
     epilog='''by Mateusz Bysiek''',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 parser.add_argument(
     'filename', metavar='<filename-without-extension>', type=str,
-    help='''source filename wihtout .pdf extension''')
+    help='''source filename wihtout .pdf extension - for example, if source file
+ is "slides.pdf", the argument here should be "slides"''')
 
 args = parser.parse_args()
 
@@ -39,4 +41,4 @@ mbdev.execute(['pdflatex', output], indent=2)
 
 mbdev.execute(['mv', output_prefix + '.pdf', output_prefix + 'able.pdf'])
 
-mbdev.execute(['rm', '-rf', output_prefix + '.*'])
+mbdev.execute(['rm', output_prefix + '.aux', output_prefix + '.log', output_prefix + '.tex'])
