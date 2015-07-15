@@ -1,0 +1,19 @@
+
+%%
+%% section/subsection/etc. that does not appear in TOC, but is otherwise a normal section/subsection/etc.
+%%
+
+% helper function for \tocless and \toclesslab
+\newcommand{\nocontentsline}[3]{}
+
+% from http://stackoverflow.com/a/2785740/4973698
+% usage: \tocless\section{hide} or \tocless\subsection{subhide}
+% requires %### in subsections of section, on which it is used, to get rid of Texlipse warnings
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+% from a comment on http://stackoverflow.com/a/2785740/4973698
+% usage: \toclesslab\section{Motivation}{s:motivation} and \ref{s:motivation}
+% requires %### in subsections of section, on which it is used, to get rid of Texlipse warnings
+% requires %### to get rid of "No argument following \label" warning
+%\newcommand{\toclesslab}[3]{\bgroup\let\addcontentsline=\nocontentsline#1{#2\label{#3}}\egroup}
+\newcommand{\toclesslab}[3]{\tocless{#1}{#2\label{#3}}}
