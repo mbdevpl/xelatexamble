@@ -65,8 +65,11 @@
 % fancy matrix environments
 \usepackage{mathtools}
 
+% this needs to be loaded before unicode-math package
+\usepackage{currfile}
+
 % needed for fancy math fonts
-\usepackage{unicode-math}
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
 
 % change math mode font to a better one, needs package asana-math
 \setmathfont[version=Asana]{Asana Math}
