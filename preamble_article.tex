@@ -37,8 +37,6 @@
 % space below caption (0.0pt).
 \setlength{\belowcaptionskip}{0pt}
 
-% page counter
-\newcommand{\pagecounter}{page \thepage{} of \pageref{LastPage}}
 % setup page header and footer
 \fancypagestyle{fancytext}
 {
@@ -50,7 +48,7 @@
   % contents of left-hand side footer
   \lfoot{}
   % contents of central footer
-  \cfoot{{\footnotesize\pagecounter}}
+  \cfoot{{\footnotesize\pagecounterPageOf}}
   % contents of right-hand side footer
   \rfoot{}
 }
