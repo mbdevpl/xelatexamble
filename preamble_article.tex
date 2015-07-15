@@ -2,8 +2,9 @@
   ]{article}
 
 \input{packages}
-
 \input{packages_article}
+\input{commands}
+\input{commands_article}
 
 % geometry setup
 \geometry{margin=4cm}
@@ -103,6 +104,16 @@
 \newpage{}
 
 \printbibliography
+
+% emergency measures to fix URLs in the bibliography
+\begin{comment}
+\begingroup
+%\raggedright
+%\sloppy
+\emergencystretch 0.9em
+\printbibliography
+\endgroup
+\end{comment}
 
 \end{document}
 
