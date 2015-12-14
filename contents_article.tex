@@ -1,0 +1,54 @@
+\selectlanguage{english}
+%\selectlanguage{polish}
+
+\maketitle{}
+
+\vfill{}
+
+\tableofcontents{}
+
+\vfill{}
+
+% add those below \maketitle and \tableofcontents unless they reside
+%  on the same page - then it is enough to add it below the later one
+\pagestyle{fancytext}
+\thispagestyle{fancytext}
+
+\newpage{}
+
+\section{First}
+
+\lipsum[1]{}
+
+
+\section{Second}
+
+\lipsum[2]{}
+\autocite{wiki_en}
+\autocite{wiki_pl}
+
+\subsection{Sub-second}
+
+\lipsum[3]{}
+
+\subsubsection{Sub-sub-second}
+
+\lipsum[4]{}
+
+\section{Third}
+
+\lipsum[5]{}
+
+\autocite{wiki_en, wiki_pl}
+
+\printbibliography
+
+% emergency measures to fix URLs in the bibliography
+\begin{comment}
+\begingroup
+%\raggedright
+%\sloppy
+\emergencystretch 0.9em
+\printbibliography
+\endgroup
+\end{comment}

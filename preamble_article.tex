@@ -9,15 +9,12 @@
 % geometry setup
 \geometry{margin=4cm}
 
-% absolute operations:
-\setlength{\topmargin}{4cm}
-
 % relative operations:
 \addtolength{\oddsidemargin}{-0.25cm}
 \addtolength{\evensidemargin}{-0.25cm}
 % this should be negative of the sum of the above two
 \addtolength{\textwidth}{0.5cm}
-\addtolength{\topmargin}{-0.5cm}
+\addtolength{\topmargin}{-1.0cm}
 % footer is not included in below
 \addtolength{\textheight}{1.0cm}
 
@@ -78,40 +75,9 @@
   }
 }
 
-\addbibresource[datatype=bibtex]{document.bib}
+% name the .bib file the same as the main .tex file
+\addbibresource[datatype=bibtex]{tests.bib}
 
 \title{\documentTitle}
 \author{\documentAuthor\footnote{affiliation details}}
 \date{\documentDate}
-
-\begin{document}
-
-\maketitle{}
-
-\vfill{}
-
-\tableofcontents{}
-
-\vfill{}
-
-% add below after \maketitle and \tableofcontents unless they reside
-%  on the same page - then add it below the later one
-\pagestyle{fancytext}
-\thispagestyle{fancytext}
-
-\newpage{}
-
-\printbibliography
-
-% emergency measures to fix URLs in the bibliography
-\begin{comment}
-\begingroup
-%\raggedright
-%\sloppy
-\emergencystretch 0.9em
-\printbibliography
-\endgroup
-\end{comment}
-
-\end{document}
-
