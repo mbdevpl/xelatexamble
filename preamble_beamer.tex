@@ -24,12 +24,15 @@
 % space below caption (0.0pt).
 \setlength{\belowcaptionskip}{0pt}
 
-\addbibresource[datatype=bibtex]{document.bib}
+\input{beamer_theme_default}
+
+\addbibresource[datatype=bibtex]{tests.bib}
 
 % uncomment to add or remove pages with notes
 %\setbeameroption{show notes}
 %\setbeameroption{show notes on second screen=left}
 %\setbeameroption{show only notes}
+\setbeamerfont{note page}{size=\scriptsize}
 
 % uncomment to get rid of all styles from note pages
 %\setbeamertemplate{note page}[plain]
