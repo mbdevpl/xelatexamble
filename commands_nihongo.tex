@@ -1,0 +1,24 @@
+
+%%
+%% kanji
+%%
+
+% kanji with hiragana under it
+% usage: \nihongoKanjiUnder{}{}
+\newcommand{\nihongoKanjiUnder}[2]{\hspace{-1pt}%
+\raisebox{1.4ex}[2.0ex][9pt]{$\underset%
+{\mbox{\raisebox{-8pt}{\footnotesize{#2}}}}%
+{\mbox{\raisebox{-1.4ex}[0.0ex][0.0ex]{#1}}}%
+$}\hspace{1pt}}
+
+% kanji with hiragana over it
+% usage: \nihongoKanjiOver{}{}
+\newcommand{\nihongoKanjiOver}[2]{\hspace{-1pt}%
+\raisebox{0.3ex}{$\overset%
+{\mbox{\raisebox{3pt}[10pt][0.0ex]{\footnotesize{#2}}}}%
+{\mbox{\raisebox{-0.3ex}[0.9ex][0.0ex]{#1}}}%
+$}\hspace{1pt}}
+
+% kanji with hiragana in default place (currently under)
+% usage: \nihongoKanji{}{}
+\newcommand{\nihongoKanji}[2]{\nihongoKanjiUnder{#1}{#2}}
