@@ -31,12 +31,6 @@
 \fi
 \fi
 
-% recommended when using English hyphenation with babel
-\usepackage{csquotes}
-
-% hyphenation
-\usepackage[english]{babel}
-
 % for proper placement of floating figures
 \usepackage{float}
 
@@ -117,6 +111,16 @@
 \usepackage{pythontex}
 \setpythontexlistingenv{pythontexlisting}
 \fi
+
+% hyphenation
+% load this package after amssymb when using option 'polish'
+\usepackage[english,polish]{babel}
+
+% recommended when using English hyphenation with babel
+% load this package after minted
+\usepackage{csquotes}
+% prevents warning: No style for language 'polish'.
+\DeclareQuoteAlias{croatian}{polish}
 
 % page x of y with: \cfoot{\thepage{} of \pageref{LastPage}}
 \usepackage{lastpage}
