@@ -52,28 +52,28 @@
 % set style to the above
 \pagestyle{fancytext}
 
-% metadata for PDF
+% create metadata for PDF
 \newcommand{\documentTitle}{Title}
-\newcommand{\documentDate}{1 January 2015} % custom date, or \today
 \newcommand{\documentAuthor}{Mateusz Bysiek}
 \newcommand{\documentSubject}{}
 \newcommand{\documentDescription}{}
 \newcommand{\documentKeywords}{}
 \newcommand{\documentLanguage}{en}
+\DTMsavedate{dateCreation}{2015-01-01}
+\DTMsavetime{timeCreation}{12:00:00}
+\DTMsavenow{datetimeModification}
+% set some of PDF metadata
 \hypersetup{
-  pdfauthor={\documentAuthor},
-  pdftitle={\documentTitle},
-  pdfsubject={\documentSubject},
-  pdfkeywords={\documentKeywords},
-  %pdfproducer={LaTeX with hyperref},
-  %pdfcreator={xelatex, biber},
-  pdfcreationdate={\documentDate},
   pdflang={\documentLanguage},
   pdfinfo={
-    CopyrightStatus={Copyrighted},
-    CopyrightNotice={CC BY-NC 4.0 2015 by \documentAuthor}
+    Author={\documentAuthor},
+    Title={\documentTitle},
+    Subject={\documentSubject},
+    Keywords={\documentKeywords}
   }
 }
+\newcommand{\documentCreation}{\DTMusedate{dateCreation}\DTMusetime{timeCreation}}
+\newcommand{\documentModification}{\DTMuse{datetimeModification}}
 
 % name the .bib file the same as the main .tex file
 \addbibresource[datatype=bibtex]{tests.bib}

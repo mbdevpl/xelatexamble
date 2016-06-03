@@ -122,6 +122,12 @@
 % prevents warning: No style for language 'polish'.
 \DeclareQuoteAlias{croatian}{polish}
 
+% use for international dates
+\usepackage[showdow,calc,english,polish]{datetime2}
+\DTMsetup{useregional}
+%\DTMlangsetup[english]{abbr,datesep={\space}} % doesn't work, also not needed
+\DTMlangsetup[polish]{datesep={\space}}
+
 % page x of y with: \cfoot{\thepage{} of \pageref{LastPage}}
 \usepackage{lastpage}
 

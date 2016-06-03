@@ -1,6 +1,18 @@
 \selectlanguage{english}
 %\selectlanguage{polish}
 
+% set remaining of PDF metadata
+\DTMsetstyle{pdf}
+\hypersetup{
+  pdfinfo={
+    CreationDate={\documentCreation},
+    ModDate={\documentModification},
+    CopyrightStatus={Copyrighted},
+    CopyrightNotice={CC BY-NC 4.0 \DTMfetchyear{dateCreation}-\DTMfetchyear{datetimeModification} by \documentAuthor}
+  }
+}
+\DTMsetdatestyle{default}
+
 \maketitle{}
 
 \vfill{}
