@@ -6,9 +6,11 @@
 *.bcf
 *.blg
 *.lof
+*.lot
 *.log
 *.nav
 *.out
+*.pdf_tex
 *.run.xml
 *.snm
 *.synctex.gz
