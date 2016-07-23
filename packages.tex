@@ -143,3 +143,13 @@
 % use \addbibresource[datatype=bibtex]{file.bib} to add bibliography
 % some more options: ,bibstyle=authortitle,url=false,isbn=false,autocite=square,autocite=superscript,
 \usepackage[backend=biber,hyperref=true,backref=true,style=numeric,sorting=none]{biblatex}
+
+\makeatletter
+
+% packages only for 'article' document class
+\@ifclassloaded{article}{\subimport{}{packages_article}}{}%
+
+% packages only for 'article' document class
+\@ifclassloaded{beamer}{\subimport{}{packages_beamer}}{}%
+
+\makeatother

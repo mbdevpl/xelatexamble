@@ -1,0 +1,10 @@
+
+% beamer loads package xcolor, so any options used there should be added to \documentclass
+% option ``envcountsect'' is for numbering theorems and definitions depending on section number 
+\documentclass[envcountsect,CJK,
+  xcolor={usenames,dvipsnames,svgnames,table,x11names},
+  hyperref={unicode,pdfencoding=auto}
+  ]{beamer}
+
+% for including relative files within relatively included files
+\usepackage{import}

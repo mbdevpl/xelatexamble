@@ -54,3 +54,10 @@
 %%
 
 \newcommand{\missingContent}[0]{\textcolor{red}{\textbf{missing content}}}
+
+\makeatletter
+
+% commands only for 'article' document class
+\@ifclassloaded{article}{\subimport{}{commands_article}}{}%
+
+\makeatother
