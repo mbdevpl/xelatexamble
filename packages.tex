@@ -114,7 +114,7 @@
 
 % hyphenation
 % load this package after amssymb when using option 'polish'
-\usepackage[english,polish]{babel}
+\usepackage[british,polish]{babel}
 
 % recommended when using English hyphenation with babel
 % load this package after minted
@@ -123,9 +123,9 @@
 \DeclareQuoteAlias{croatian}{polish}
 
 % use for international dates
-\usepackage[showdow,calc,english,polish]{datetime2}
+\usepackage[calc,british,polish]{datetime2}
 \DTMsetup{useregional}
-%\DTMlangsetup[english]{abbr,datesep={\space}} % doesn't work, also not needed
+\DTMlangsetup[en-GB]{ord=omit,datesep={\space}}
 \DTMlangsetup[polish]{datesep={\space}}
 
 % page x of y with: \cfoot{\thepage{} of \pageref{LastPage}}
