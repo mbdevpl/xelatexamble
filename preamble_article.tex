@@ -31,6 +31,21 @@
 % space below caption (0.0pt).
 \setlength{\belowcaptionskip}{0em}
 
+% workaround for stupid TeXlipse parser
+%###
+\newcommand{\onlyacomment}[1]{}
+\onlyacomment{%
+%###
+\usepackage[%
+backend=biber
+]{biblatex}
+%###
+}
+%###
+
+% name the .bib file the same as the main .tex file
+\addbibresource[datatype=bibtex]{tests.bib}
+
 % setup page header and footer
 \fancypagestyle{fancytext}
 {
@@ -71,21 +86,6 @@
 }
 \newcommand{\documentCreation}{\DTMusedate{dateCreation}\DTMusetime{timeCreation}}
 \newcommand{\documentModification}{\DTMuse{datetimeModification}}
-
-% workaround for stupid TeXlipse parser
-%###
-\newcommand{\onlyacomment}[1]{}
-\onlyacomment{%
-%###
-\usepackage[%
-backend=biber
-]{biblatex}
-%###
-}
-%###
-
-% name the .bib file the same as the main .tex file
-\addbibresource[datatype=bibtex]{tests.bib}
 
 \title{\documentTitle}
 \author{\documentAuthor\footnote{affiliation details}}
