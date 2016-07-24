@@ -19,9 +19,10 @@
 % space below caption (0.0pt).
 \setlength{\belowcaptionskip}{0em}
 
-\input{beamer_theme_default}
 
 \addbibresource[datatype=bibtex]{tests.bib}
+
+\subimport{}{beamer_theme_default}
 
 % uncomment to add or remove pages with notes
 %\setbeameroption{show notes}
@@ -31,7 +32,32 @@
 % uncomment to get rid of all styles from note pages
 %\setbeamertemplate{note page}[plain]
 
-\title[codename]{Title}
-\subtitle{Subtitle}
-\author[M.Bysiek]{presented by Mateusz Bysiek}
-\date[1 Jan 2015]{1 January 2015}
+% create metadata for PDF
+\newcommand{\documentTitle}{Title}
+\newcommand{\documentSubtitle}{Subtitle}
+\newcommand{\documentTitleShort}{Short title}
+\newcommand{\documentAuthor}{Mateusz Bysiek}
+\newcommand{\documentSubject}{}
+\newcommand{\documentDescription}{}
+\newcommand{\documentKeywords}{}
+\newcommand{\documentLanguage}{en}
+\DTMsavedate{dateCreation}{2016-01-01}
+\DTMsavetime{timeCreation}{12:00:00}
+\DTMsavenow{datetimeModification}
+% set some of PDF metadata
+\hypersetup{
+  pdflang={\documentLanguage},
+  pdfinfo={
+    Author={\documentAuthor},
+    Title={\documentTitle},
+    Subject={\documentSubject},
+    Keywords={\documentKeywords}
+  }
+}
+\newcommand{\documentCreation}{\DTMusedate{dateCreation}\DTMusetime{timeCreation}}
+\newcommand{\documentModification}{\DTMuse{datetimeModification}}
+
+\title[\documentTitleShort]{\documentTitle}
+\subtitle{\documentSubtitle}
+\author[\documentAuthor]{\documentAuthor}
+\date[\DTMusedate{datetimeModification}]{\DTMusedate{datetimeModification}}
