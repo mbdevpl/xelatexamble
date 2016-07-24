@@ -144,6 +144,12 @@
 % some more options: ,bibstyle=authortitle,url=false,isbn=false,autocite=square,autocite=superscript,
 \usepackage[backend=biber,hyperref=true,backref=true,style=numeric,sorting=none]{biblatex}
 
+% workaround for svg package errors in xelatex
+%\providecommand{\pdffilemoddate}[1]{}
+
+%\usepackage[inkscape={/usr/bin/inkscape -z -C}]{svg}
+\usepackage{svg}
+
 \makeatletter
 
 % packages only for 'article' document class
