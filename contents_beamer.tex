@@ -1,3 +1,22 @@
+% choose document language
+\selectlanguage{british}
+\selectlanguage{polish}
+
+% set remaining of PDF metadata
+\DTMsetstyle{pdf}
+\hypersetup{
+  pdfinfo={
+    CreationDate={\documentCreation},
+    ModDate={\documentModification},
+    CopyrightStatus={Copyrighted},
+    CopyrightNotice={CC BY-NC 4.0 \DTMfetchyear{dateCreation}-\DTMfetchyear{datetimeModification} by \documentAuthor}
+  }
+}
+% choose date style
+\DTMsetstyle{default}
+\DTMsetstyle{en-GB}
+\DTMsetstyle{polish}
+
 \section{Introduction}
 
 \subsection{Title page}
@@ -14,13 +33,22 @@ Welcome.
 
 \end{frame}
 
-\section{Main section}
+\section{First}
 
-\subsection{The subsection}
+\subsection{Sub-first}
 
 \begin{frame}
 
-Wikipedia is available in English \autocite{wiki_en} and Polish \autocite{wiki_pl}, as well as in other languages.
+\lipsum[1]{}
+
+\end{frame}
+
+\subsection{Another sub-first}
+
+\begin{frame}
+
+Wikipedia is available in English \autocite{wiki_en} and Polish \autocite{wiki_pl}, as well as in
+other languages.
 
 \note{
 
