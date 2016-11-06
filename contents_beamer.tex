@@ -18,8 +18,7 @@
 \DTMsetstyle{polish}
 
 \section{Introduction}
-
-\subsection{Title page}
+\stepcounter{subsection}
 
 \begin{frame}
 
@@ -34,18 +33,20 @@ Welcome.
 \end{frame}
 
 \section{First}
-
-\subsection{Sub-first}
+\stepcounter{subsection}
 
 \begin{frame}
+\frametitle{Lorem ipsum}
 
 \lipsum[1]{}
 
 \end{frame}
 
-\subsection{Another sub-first}
+\section{Second}
+\stepcounter{subsection}
 
 \begin{frame}
+\frametitle{Wikipedia}
 
 Wikipedia is available in English \autocite{wiki_en} and Polish \autocite{wiki_pl}, as well as in
 other languages.
@@ -58,10 +59,11 @@ I would like to say something.
 
 \end{frame}
 
-\section{References}
+\section{\bibname}
+%\stepcounter{subsection}
 
 \begin{frame}
-\frametitle{References}
+\frametitle{\bibname}
 
 \printbibliography
 
