@@ -48,8 +48,12 @@ backend=biber
 \newcommand{\documentTitle}{Title}
 \newcommand{\documentSubtitle}{Subtitle}
 \newcommand{\documentTitleShort}{Short title}
+% separate author names with \and, add suffix for different affiliations \inst{#} (# is a number)
 \newcommand{\documentAuthor}{Mateusz Bysiek}
 \newcommand{\documentAuthorShort}{M.Bysiek}
+% separate insitutions with \and, add prefix \inst{#} for each (# is a number)
+\newcommand{\documentInsitute}{Tokyo Institute of Technology}
+\newcommand{\documentInsituteShort}{Tokyo Tech}
 \newcommand{\documentSubject}{}
 \newcommand{\documentDescription}{}
 \newcommand{\documentKeywords}{}
@@ -73,4 +77,5 @@ backend=biber
 \title[\documentTitleShort]{\documentTitle}
 \subtitle{\documentSubtitle}
 \author[\documentAuthorShort]{\documentAuthor}
+\institute[\documentInsituteShort]{\documentInsitute}
 \date[\DTMusedate{datetimeModification}]{\DTMusedate{datetimeModification}}
