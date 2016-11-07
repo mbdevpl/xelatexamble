@@ -78,4 +78,7 @@
 % commands only for 'article' document class
 \@ifclassloaded{article}{\subimport{}{commands_article}}{}%
 
+% packages only for 'beamer' document class
+\@ifclassloaded{beamer}{\subimport{}{commands_beamer}}{}%
+
 \makeatother
