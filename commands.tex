@@ -57,13 +57,6 @@
 
 \newcommand{\missingContent}[0]{\textcolor{red}{\textbf{missing content}}}
 
-\makeatletter
-
-% commands only for 'article' document class
-\@ifclassloaded{article}{\subimport{}{commands_article}}{}%
-
-\makeatother
-
 % argument #1: any options
 \newenvironment{customlegend}[1][]{%
     \begingroup
@@ -79,3 +72,10 @@
 
 % makes \addlegendimage available (typically only available within an axis environment):
 \def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
+\makeatletter
+
+% commands only for 'article' document class
+\@ifclassloaded{article}{\subimport{}{commands_article}}{}%
+
+\makeatother
