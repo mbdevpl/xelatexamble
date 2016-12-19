@@ -26,6 +26,8 @@
 *.pytxcode
 *.pytxmcr
 *.pytxpyg
+*.mintedcmd
+*.mintedmd5
 
 # htlatex temporary files
 *.4ct
