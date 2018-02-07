@@ -1,44 +1,60 @@
 #!/usr/bin/python3
 
-# https://docs.python.org/3/library/argparse.html
+"""Generate printable slides (4 slides on one page) from a PDF.
+
+Assuming that the PDF page size is what beamer would generate by default.
+
+On different input page size the page placement might not be optimal.
+"""
+
 import argparse
+import subprocess
 
-import mbdev
 
-parser = argparse.ArgumentParser(
-    description='''Generates printable version of beamer slides. The resulting
- file will have the name "<filename>_printable.pdf" where <filename> is the sole
- command-line argument. When you actually print the output file, please select
- 'US letter' paper size due to margin errors on some printers.''',
-    epilog='''by Mateusz Bysiek''',
-    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+def main(args=None):
+    """Commandline interface of the printable slides generator."""
 
-parser.add_argument(
-    'filename', metavar='<filename-without-extension>', type=str,
-    help='''source filename wihtout .pdf extension - for example, if source file
- is "slides.pdf", the argument here should be "slides"''')
+    parser = argparse.ArgumentParser(
+        description='''Generates printable version of beamer slides. The resulting
+     file will have the name "<filename>_printable.pdf" where <filename> is the sole
+     command-line argument. When you actually print the output file, please select
+     'US letter' paper size due to margin errors on some printers.''',
+        epilog='''by Mateusz Bysiek''',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-args = parser.parse_args()
+    parser.add_argument(
+        'filename', metavar='<filename-without-extension>', type=str,
+        help='''source filename wihtout .pdf extension - for example, if source file
+     is "slides.pdf", the argument here should be "slides"''')
 
-output_prefix = args.filename + '_print'
-output = output_prefix + '.tex'
+    args = parser.parse_args(args)
 
-with open(output, 'w') as f:
-		f.write(r'''\documentclass[a4paper]{article}
+    make_printable_slides(args.filename)
+
+
+def make_printable_slides(filename: str):
+    """Generate printable slides (4 slides on one page) from a PDF."""
+
+    output_prefix = filename + '_print'
+    output = output_prefix + '.tex'
+
+    with open(output, 'w') as tex_file:
+        tex_file.write(r'''\documentclass[a4paper]{article}
 
 \usepackage{pdfpages}
 
 \begin{document}
 
-\includepdf[nup=2x2,pages=-,delta=5mm 5mm,frame=true,landscape]{''')
-		f.write(args.filename)
-		f.write(r'''.pdf}
+\includepdf[nup=2x2,pages=-,delta=5mm 5mm,frame=true,landscape]{''' + filename + r'''.pdf}
 
 \end{document}
 ''')
 
-mbdev.execute(['pdflatex', output], indent=2)
+    subprocess.run(['pdflatex', output], check=True)
+    subprocess.run(['mv', output_prefix + '.pdf', output_prefix + 'able.pdf'], check=True)
+    subprocess.run(['rm', output_prefix + '.aux', output_prefix + '.log', output_prefix + '.tex'],
+                   check=True)
 
-mbdev.execute(['mv', output_prefix + '.pdf', output_prefix + 'able.pdf'])
 
-mbdev.execute(['rm', output_prefix + '.aux', output_prefix + '.log', output_prefix + '.tex'])
+if __name__ == '__main__':
+    main()
