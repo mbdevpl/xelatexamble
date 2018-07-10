@@ -4,13 +4,20 @@
 
 ## Linux
 
-When using pythontex (inline minted), run:
+When using pythontex (inline minted), after the first build run:
 
 ```
 pythontex document.tex
 ```
 
-after the first build, and then rebuild to get correct document.
+or if it breaks, run one of below (depending on your Python version...):
+
+```
+python3 $(which pythontex)
+python3.6 $(which pythontex)
+```
+
+and then rebuild to get correct document.
 
 
 ## Windows
